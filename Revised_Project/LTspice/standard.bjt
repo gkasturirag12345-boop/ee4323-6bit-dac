@@ -1,0 +1,148 @@
+* Copyright © 2000 Linear Technology Corporation.   All rights reserved.
+*
+*
+** Model for npn pnp_1
+.model npn npn
++ IS   = 2.220e-18  BF   = 100.0e+00  NF   = 1.000e+00  VAF  = 35.00e+00
++ IKF  = 1.700e-03  ISE  = 3.300e-18  NE   = 1.400e+00  BR   = 10.00e+00
++ NR   = 1.010e+00  VAR  = 5.000e+00  IKR  = 2.000e-03  ISC  = 2.500e-18
++ NC   = 1.300e+00  IRB  = 10.00e-06  RBM  = 1.100e+03  RB   = 2.100e+03
++ RE   = 30.00e+00  RC   = 320.0e+00
++ TF   = 17.00e-12  XTF  = 3.000e+00  ITF  = 1.440e-03  VTF  = 2.400e+00
++ CJE  = 3.400e-15  VJE  = 0.900e+00  MJE  = 0.500e+00  TR   = 1.000e-09
++ CJS  = 13.00e-15  VJS  = 0.800e+00  MJS  = 0.370e+00
++ CJC  = 7.000e-15  VJC  = 0.800e+00  MJC  = 0.370e+00
++ KF   = 2.000e-16
+*--------------------------------------------------
+
+.model pnp_1 pnp
++IS=230E-18 BF=22.5 VAF=50 XTB=2
+*--------------------------------------------------
+
+
+.model 2N2222 NPN(IS=1E-14 VAF=100
++   BF=200 IKF=0.3 XTB=1.5 BR=3
++   CJC=8E-12 CJE=25E-12 TR=100E-9 TF=400E-12
++   ITF=1 VTF=2 XTF=3 RB=10 RC=3 RE=1 Vceo=30 Icrating=800m  mfg=Philips)
+
+.model 2N2907 PNP(IS=1E-14 VAF=120
++   BF=250 IKF=0.3 XTB=1.5 BR=3
++   CJC=8E-12 CJE=30E-12 TR=100E-9 TF=400E-12
++   ITF=1 VTF=2 XTF=3 RB=10 RC=3 RE=1 Vceo=40 Icrating=600m mfg=Philips)
+
+.model 2N3904 NPN(IS=1E-14 VAF=100
++  Bf=300 IKF=0.4 XTB=1.5 BR=4
++  CJC=4E-12  CJE=8E-12 RB=20 RC=0.1 RE=0.1
++  TR=250E-9  TF=350E-12 ITF=1 VTF=2 XTF=3 Vceo=40 Icrating=200m mfg=Philips)
+
+.model 2N3906 PNP(IS=1E-14 VAF=100
++  BF=200 IKF=0.4 XTB=1.5 BR=4
++  CJC=4.5E-12 CJE=10E-12 RB=20 RC=0.1 RE=0.1
++  TR=250E-9   TF=350E-12 ITF=1 VTF=2 XTF=3 Vceo=40  Icrating=200m mfg=Philips)
+
+.model FZT849 NPN(IS=5.8591E-13 NF=0.9919 BF=230 IKF=18 VAF=90
++ ISE=2.0067E-13 NE=1.4 NR=0.9908 BR=180 IKR=6.8
++ VAR=20 ISC=5.3E-13 NC=1.46 RB=0.023 RE=0.0223
++ RC=0.015 CJC=200E-12 MJC=0.3006 VJC=0.3532
++ CJE=1.21E-9 TF=1.07E-9 TR=9.3E-9 Vceo=30 Icrating=7 mfg=Zetex) ; (C) 1993 ZETEX PLC, Last revision 14/3/97
++ ; The copyright in this model and the design embodied belong to Zetex PLC ("Zetex"). It is supplied free of charge by Zetex for
++ ; the purpose of research and design and may be used or copied intact (including this notice) for that purpose only. All other
++ ; rights are reserved. The model is believed accurate but no condition or warranty as to its merchantability or fitness for
++ ; purpose is given and no liability in respect of any use is accepted by Zetex PLC, its distributors or agents.
++ ; Zetex PLC, Fields New Road, Chadderton, Oldham OL9 8NP
+
+.model ZTX849 ako:FZT849 NPN(Vceo=30 Icrating=7 mfg=Zetex)
+
+.model ZTX1048A NPN(IS=13.73E-13 NF=1.0 BF=550 IKF=8.0 VAF=120
++ ISE=2.6E-13 NE=1.38 NR=1.0 BR=300 IKR=6 VAR=15
++ ISC=1.6E-12 NC=1.4 RB=0.1 RE=0.022 RC=0.010
++ CJC=136E-12 CJE=559.1E-12 MJC=0.267 MJE=0.299
++ VJC=0.420 VJE=0.533 TF=600E-12 TR=3E-9 Vceo=17.5 Icrating=5 mfg=Zetex) ; (C) 1994 ZETEX PLC, Last revision 20/01/95
++; The copyright in this model and the design embodied belong to Zetex PLC ("Zetex"). It is supplied free of charge by Zetex for
++; the purpose of research and design and may be used or copied intact (including this notice) for that purpose only. All other
++; rights are reserved. The model is believed accurate but no condition or warranty as to its merchantability or fitness for
++; purpose is given and no liability in respect of any use is accepted by Zetex PLC, its distributors or agents.
++; Zetex PLC, Fields New Road, Chadderton, Oldham OL9 8NP
+
+.model 2N4124   NPN(Is=6.734f Xti=3 Eg=1.11 Vaf=74.03 Bf=495 Ne=1.28 Ise=6.734f Ikf=69.35m Xtb=1.5 Br=.7214 Nc=2 Isc=0 Ikr=0 Rc=1 Cjc=3.638p
++ Mjc=.3085 Vjc=.75 Fc=.5 Cje=4.493p Mje=.2593 Vje=.75 Tr=238.3n Tf=301.3p Itf=.4 Vtf=4 Xtf=2 Rb=10 Vceo=25 Icrating=200m mfg=Fairchild)
+
+.model 2N4126   PNP(Is=1.41f Xti=3 Eg=1.11 Vaf=18.7 Bf=203.7 Ne=1.5 Ise=0 Ikf=80m Xtb=1.5 Br=4.924 Nc=2 Isc=0 Ikr=0 Rc=2.5 Cjc=9.728p
++ Mjc=.5776 Vjc=.75 Fc=.5 Cje=8.063p Mje=.3677 Vje=.75 Tr=33.23n Tf=179.3p Itf=.4 Vtf=4 Xtf=6 Rb=10 Rb=10 Vceo=25 Icrating=200m mfg=Fairchild)
+
+.model 2N3391A  NPN(Is=12.03f Xti=3 Eg=1.11 Vaf=37.37 Bf=427.8 Ne=1.971 Ise=2.953p Ikf=.1072 Xtb=1.5 Br=4.379 Nc=2 Isc=0 Ikr=0 Rc=1 Cjc=5.777p
++ Mjc=.3199 Vjc=.75 Fc=.5 Cje=8.307p Mje=.384 Vje=.75 Tr=701.7p Tf=385.4p Itf=.17 Vtf=3 Xtf=8 Rb=10 Vceo=25 Icrating=500m mfg=Fairchild)
+
+.model 2N5089   NPN(Is=5.911f Xti=3 Eg=1.11 Vaf=62.37 Bf=1.434K Ne=1.421 Ise=5.911f Ikf=15.4m Xtb=1.5 Br=1.262 Nc=2 Isc=0 Ikr=0 Rc=1.61 Cjc=4.017p
++ Mjc=.3174 Vjc=.75 Fc=.5 Cje=4.973p Mje=.4146 Vje=.75 Tr=4.671n Tf=822.3p Itf=.35 Vtf=4 Xtf=7 Rb=10 Vceo=25 Icrating=100m mfg=Fairchild)
+
+.model 2N5210   NPN(Is=5.911f Xti=3 Eg=1.11 Vaf=62.37 Bf=809.9 Ne=1.358 Ise=5.911f Ikf=14.26m Xtb=1.5 Br=1.287 Nc=2 Isc=0 Ikr=0 Rc=1.61 Cjc=4.017p
++ Mjc=.3174 Vjc=.75 Fc=.5 Cje=4.973p Mje=.4146 Vje=.75 Tr=4.68n Tf=820.9p Itf=.35 Vtf=4 Xtf=7 Rb=10 Vceo=50 Icrating=100m mfg=Fairchild)
+
+.model 2N5087   PNP(Is=6.734f Xti=3 Eg=1.11 Vaf=45.7 Bf=254.1 Ne=1.741 Ise=6.734f Ikf=.1962 Xtb=1.5 Br=2.683 Nc=2 Isc=0 Ikr=0 Rc=1.67 Cjc=6.2p
++ Mjc=.301 Vjc=.75 Fc=.5 Cje=7.5p Mje=.2861 Vje=.75 Tr=10.1n Tf=467.8p Itf=.17 Vtf=5 Xtf=8 Rb=10 Vceo=50 Icrating=100m mfg=Fairchild)
+
+.model 2N2219A  NPN(Is=14.34f Xti=3 Eg=1.11 Vaf=74.03 Bf=255.9 Ne=1.307 Ise=14.34f Ikf=.2847 Xtb=1.5 Br=6.092 Nc=2 Isc=0 Ikr=0 Rc=1 Cjc=7.306p
++ Mjc=.3416 Vjc=.75 Fc=.5 Cje=22.01p Mje=.377 Vje=.75 Tr=46.91n Tf=411.1p Itf=.6 Vtf=1.7 Xtf=3 Rb=10 Vceo=40 Icrating=800m mfg=Philips)
+
+.model 2N2905A  PNP(Is=650.6E-18 Xti=3 Eg=1.11 Vaf=115.7 Bf=231.7 Ne=1.829 Ise=54.81f Ikf=1.079 Xtb=1.5 Br=3.563 Nc=2 Isc=0 Ikr=0 Rc=.715 Cjc=14.76p
++ Mjc=.5383 Vjc=.75 Fc=.5 Cje=19.82p Mje=.3357 Vje=.75 Tr=111.3n Tf=603.7p Itf=.65 Vtf=5 Xtf=1.7 Rb=10 Vceo=60 Icrating=600m mfg=Philips)
+
+.model 2N4401   NPN(Is=26.03f Xti=3 Eg=1.11 Vaf=90.7 Bf=4.292K Ne=1.244 Ise=26.03f Ikf=.2061 Xtb=1.5 Br=1.01 Nc=2 Isc=0 Ikr=0 Rc=.5 Cjc=11.01p
++ Mjc=.3763 Vjc=.75 Fc=.5 Cje=24.07p Mje=.3641 Vje=.75 Tr=233.7n Tf=466.5p Itf=0 Vtf=0 Xtf=0 Rb=10 Vceo=40 Icrating=600m mfg=Fairchild)
+
+.model 2N4403   PNP(Is=650.6E-18 Xti=3 Eg=1.11 Vaf=115.7 Bf=216.2 Ne=1.829 Ise=58.72f Ikf=1.079 Xtb=1.5 Br=3.578 Nc=2 Isc=0 Ikr=0 Rc=.715 Cjc=14.76p
++ Mjc=.5383 Vjc=.75 Fc=.5 Cje=19.82p Mje=.3357 Vje=.75 Tr=111.6n Tf=603.7p Itf=.65 Vtf=5 Xtf=1.7 Rb=10 Vceo=40 Icrating=600m mfg=Fairchild)
+
+.model 2N5550   NPN(Is=2.511f Xti=3 Eg=1.11 Vaf=100 Bf=213.4 Ne=1.241 Ise=2.511f Ikf=.3495 Xtb=1.5 Br=3.24 Nc=2 Isc=0 Ikr=0 Rc=1 Cjc=4.883p
++ Mjc=.3047 Vjc=.75 Fc=.5 Cje=18.79p Mje=.3416 Vje=.75 Tr=1.212n Tf=560.1p Itf=50m Vtf=5 Xtf=8 Rb=10 Vceo=150 Icrating=600m mfg=Fairchild)
+
+.model 2N5401   PNP(Is=21.48f Xti=3 Eg=1.11 Vaf=100 Bf=132.1 Ne=1.375 Ise=21.48f Ikf=.1848 Xtb=1.5 Br=3.661 Nc=2 Isc=0 Ikr=0 Rc=1.6 Cjc=17.63p
++ Mjc=.5312 Vjc=.75 Fc=.5 Cje=73.39p Mje=.3777 Vje=.75 Tr=1.476n Tf=641.9p Itf=0 Vtf=0 Xtf=0 Rb=10 Vceo=150 Icrating=600m mfg=Fairchild)
+
+.model 2N2369   NPN(Is=44.14f Xti=3 Eg=1.11 Vaf=100 Bf=78.32 Ne=1.389 Ise=91.95f Ikf=.3498 Xtb=1.5 Br=12.69m Nc=2 Isc=0 Ikr=0 Rc=.6 Cjc=2.83p
++ Mjc=86.19m Vjc=.75 Fc=.5 Cje=4.5p Mje=.2418 Vje=.75 Tr=1.073u Tf=227.6p Itf=.3 Vtf=4 Xtf=4 Rb=10 Vceo=15 Icrating=200m mfg=Philips)
+
+.model 2N5769   NPN(Is=44.14f Xti=3 Eg=1.11 Vaf=100 Bf=78.32 Ne=1.389 Ise=91.95f Ikf=.3498 Xtb=1.5 Br=12.69m Nc=2 Isc=0 Ikr=0 Rc=.6 Cjc=2.83p
++ Mjc=86.19m Vjc=.75 Fc=.5 Cje=4.5p Mje=.2418 Vje=.75 Tr=1.073u Tf=227.6p Itf=.3 Vtf=4 Xtf=4 Rb=10 Vceo=15 Icrating=200m mfg=Fairchild)
+
+.model 2N5771   PNP(Is=545.6E-18 Xti=3 Eg=1.11 Vaf=100 Bf=76.77 Ne=1.5 Ise=0 Ikf=50m Xtb=1.5 Br=1.365 Nc=2 Isc=0 Ikr=0 Rc=3.75 Cjc=2.77p
++ Mjc=.1416 Vjc=.75 Fc=.5 Cje=2.65p Mje=.3083 Vje=.75 Tr=4.033n Tf=118.5p Itf=.5 Vtf=3 Xtf=6 Rb=10 Vceo=15 Icrating=200m mfg=Fairchild)
+
+.model 2N3055   NPN(Bf=73 Br=2.66 Rb=.81 Rc=.0856 Re=.000856
++  CJC=1000P PC=.75 MC=.33  Tr=.5703U Is=2.37E-8
++  CJE=415P PE=.75 ME=.5 TF=99.52N NE=1.26 IK=1 Vceo=60 Icrating=10 mfg=STMicro)
+
+.model BCW60A  NPN(IS=20f VAF=100
++   BF=120 IKF=0.8  XTB=1.5 BR=5
++   CJC=20p CJE=8p TR=100n TF=600p
++   RB=10 RC=3 RE=1 Vceo=32 Icrating=200m  mfg=ROHM)
+
+.model BCW60B  NPN(IS=20f VAF=80
++   BF=240 IKF=1.0  XTB=1.5 BR=5
++   CJC=20p CJE=8p TR=100n TF=600p
++   RB=10 RC=3 RE=1 Vceo=32 Icrating=200m  mfg=ROHM)
+
+.model BCW60C  NPN(IS=20f VAF=65
++   BF=360 IKF=1.3  XTB=1.5 BR=5
++   CJC=20p CJE=8p TR=100n TF=600p
++   RB=10 RC=3 RE=1 Vceo=32 Icrating=200m  mfg=ROHM)
+
+.model BCW60D  NPN(IS=20f VAF=45
++   BF=500 IKF=1.5  XTB=1.5 BR=5
++   CJC=20p CJE=8p TR=100n TF=600p
++   RB=10 RC=3 RE=1 Vceo=32 Icrating=200m  mfg=ROHM)
+
+.model BCW68F   PNP(Is=40f  VAF=100 Bf=175 
++  IKF=2  Br=6  RC=.5 RE=0.1 RB=0.2 CJC=13p  CJE=60p
++  TR=12n TF=600p  Vceo=45 Icrating=800m mfg=ROHM)
+
+.model BCW68G   PNP(Is=40f  VAF=80 Bf=280 
++  IKF=2.5  Br=6  RC=.5 RE=0.1 RB=0.2 CJC=13p  CJE=60p
++  TR=12n TF=600p  Vceo=45 Icrating=800m mfg=ROHM)
+
+.model 2N3019 NPN(Is=14f Vaf=100 Bf=200 Ikf=.75 Xtb=1.5 Br=5 Rc=.7 Cjc=16p Mjc=.36  Cje=55p Mje=.1553 Tr=800p Tf=800p Itf=1.2 Vtf=5 Xtf=55 Rb=10 Vceo=80 Icrating=1 mfg=Semicoa)
+
+
+
+
