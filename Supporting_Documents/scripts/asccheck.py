@@ -51,8 +51,9 @@ def parse(text, subckt=None):
             pins = [f"p{i}" for i in range(len(nodes))]
         else:
             nodes = t[1:1 + len(pins)]
+        inst = t[0].replace("§", "")       # LTspice writes an instance "Ma" of a Q symbol as "Q§Ma"
         for p, n in zip(pins, nodes):
-            out[(t[0], p)] = n
+            out[(inst, p)] = n
     return out
 
 

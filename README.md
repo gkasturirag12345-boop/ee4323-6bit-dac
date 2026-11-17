@@ -49,11 +49,12 @@ Source: `Simulation_Results/*/summary.json`. The static numbers are re-derived f
 | Monotonic | yes (also at 1 MS/s) |
 | Update rate | accurate to 0.005 LSB at 1 MS/s; errors reach 0.86 LSB at 2 MS/s |
 | Output temperature coefficient, 0–80 °C | 21 ppm/°C (code 63), 37 ppm/°C (code 31) |
-| Supply power at code 63 into 50 Ω | 88.8 mW total (regulator 28.7 mW, op-amp 2.6 mW, DAC core 0.68 mW) |
+| Supply power at code 63 into 50 Ω | 88.8 mW total: regulator 28.7 mW, load 12.3 mW, op-amp core 2.6 mW, DAC core 0.68 mW; the remaining 44.4 mW is dissipated mostly in the op-amp's NMOS output follower |
 | Minimum unregulated supply (VOUT within ½ LSB) | 3.63 V (3.64 V without load) |
 
 **Reference / LDO**: VREF = 3.620 V and settles to 1 mV in about 21 µs from power-up (0–80 °C, 4.5–5 V). The
-temperature coefficient is 81 ppm/°C. Line regulation is 46 mV/V (4.5–5 V); load regulation is 16.3 mV for 0–50 mA.
+temperature coefficient is 81 ppm/°C. Line regulation is 46 mV/V (4.5–5 V); load regulation is 16.3 mV for 0–50 mA. A 1 → 51 mA load step dips VREF by
+915 mV and overshoots by 1126 mV on release, recovering to within 1 mV in 0.78 µs.
 Loop phase margins are 91° and 93°.
 
 **Op-amp**: DC gain 84–101 dB, unity-gain frequency 8.4–16.8 MHz and phase margin 71–80° across the output range and
@@ -94,9 +95,18 @@ pytest          # 11 tests: all four schematics regenerate byte-identically; INL
   material and are **not** distributed here;
 - an LTspice `.raw` reader (the `ltspice-mcp` package; path via `LTSPICE_MCP_SRC`).
 
-Then run, from the scripts folder: `python char_run.py`, `python reg02_run.py`, `python opamp03_run.py`,
-`python sys04_run.py`, `python make_figures.py`. The large waveform CSVs (over 2 MB) are not committed; the run
-scripts regenerate them.
+Then run, from the scripts folder:
+- `python verify_all.py`: LTspice netlists schematics 02–04 and compares each with its intended netlist (exit code 1
+  on a mismatch). 01 is a set of device test benches with no intended netlist.
+- `python char_run.py`, `python reg02_run.py`, `python opamp03_run.py`, `python sys04_run.py`,
+  `python make_figures.py`. The run scripts overwrite `Simulation_Results/`. The large waveform CSVs (over 2 MB) are
+  not committed; the run scripts regenerate them.
+
+Simulation files go to `~/dac_sim_final` unless `DAC_SIMDIR` is set.
+
+Re-run on 2026-11-18 (commit 7e4e59c, LTspice under Wine on macOS): `verify_all.py` reported schematics 02, 03 and 04
+(34, 20 and 114 transistors) identical to their intended netlists. `python sys04_run.py static` reproduced every
+static metric in `summary.json` exactly.
 
 ## Limitations
 - Simulation only, with typical course models: no process corners, Monte Carlo mismatch or layout parasitics.
