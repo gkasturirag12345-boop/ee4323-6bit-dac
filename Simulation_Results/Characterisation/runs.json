@@ -1,0 +1,27 @@
+{
+ "A_output": {
+  "steps": 6,
+  "points": 156,
+  "errors": []
+ },
+ "BC_transfer_body": {
+  "steps": 3,
+  "points": 93,
+  "errors": []
+ },
+ "D_npn_dc_temp": {
+  "steps": 1,
+  "points": 81,
+  "errors": []
+ },
+ "D_npn_step_temp": {
+  "steps": 5,
+  "points": 5,
+  "errors": []
+ },
+ "E_pmos_transfer": {
+  "steps": 1,
+  "points": 31,
+  "errors": []
+ }
+}

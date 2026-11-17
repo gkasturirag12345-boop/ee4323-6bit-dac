@@ -8,3 +8,7 @@ node_modules/
 .ipynb_checkpoints/
 *.raw
 *.log
+
+# course-provided device models (not redistributable)
+EE4323_cmos.mos
+EE4323_bjt.lib
