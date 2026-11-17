@@ -1,3 +1,5 @@
+![Project banner (decorative)](docs/images/banner.svg)
+
 # 6-bit Segmented Current-Steering DAC in LTspice
 
 A complete 6-bit digital-to-analog converter designed at transistor level and characterised in LTspice:
