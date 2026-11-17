@@ -1,0 +1,3 @@
+# Versions verified 2026-11-18 (Python 3.14). Full simulation also needs LTspice + ltspice-mcp (see README).
+numpy==2.5.4
+matplotlib==3.11.2
